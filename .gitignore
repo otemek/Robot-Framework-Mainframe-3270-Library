@@ -11,3 +11,6 @@ log.html
 tests/screenshots/
 .project
 .pydevproject
+.settings
+__pycache__
+/.settings

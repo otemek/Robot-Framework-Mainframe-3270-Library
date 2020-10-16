@@ -179,10 +179,12 @@ class ExecutableAppWin(object):
         
     def spawn_app(self, host):
         if self.sess_file:
-            self.args = host
-            host = []
-        args = ['start', '/wait', self.executable] + self.args    
-        args.extend(['-scriptport', str(self.script_port), host])
+            self.args = [host]
+        args = ['start', '/wait', self.executable] + self.args
+        if self.sess_file:
+            args.extend(['-scriptport', str(self.script_port)])
+        else:    
+            args.extend(['-scriptport', str(self.script_port), host])
         self.sp = subprocess.Popen(
             args,
             shell=True,
