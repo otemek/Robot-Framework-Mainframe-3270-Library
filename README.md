@@ -8,7 +8,7 @@ Mainframe3270 is a library for Robot Framework based on [py3270 project](https:/
 
 In order to use this library you need to install the [x3270 project](http://x3270.bgp.nu/download.html). More information on the [Wiki page](https://github.com/Altran-PT-GDC/Robot-Framework-Mainframe-3270-Library/wiki/Instalation) of this project.
 
-`pip install robotframework-mainframe3270`
+`pip install robotframework-mainframe3270-extended`
 
 ## Example
 
@@ -18,6 +18,7 @@ In order to use this library you need to install the [x3270 project](http://x327
     *** Test Cases ***
     Example
         Open Connection    Hostname    LUname
+        #Open Connection    host=c:\\path\\to\\sessionfile.wc3270   isSessionFile=${True}
         Change Wait Time    0.4
         Change Wait Time After Write    0.4
         Set Screenshot Folder    C:\\Temp\\IMG
@@ -35,7 +36,8 @@ Arguments:
    - visible = True
    - timeout = 30
    - wait_time = 0.5
-   - img_folder = . 	
+   - img_folder = . 
+   - isSessionFile = False	
 
 You can change to hide the emulator screen set the argument visible=${False}
 

@@ -14,3 +14,6 @@ tests/screenshots/
 .settings
 __pycache__
 /.settings
+build
+dist
+*.egg-info
