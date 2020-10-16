@@ -14,14 +14,15 @@ with open(version_file) as file:
     exec(code)
 
 setup(name         		= 'robotframework-mainframe3270',
-      version      		= '2.8',
+      version      		= '1.2.1.dev0',
       description  		= 'Mainframe Test library for Robot Framework',
 	  long_description	= 'Test library for Robot Framework to enable to create automated test scripts to test IBM Mainframe 3270',
-      author       		= 'Altran Portugal',
-      author_email 		= 'samuel.cabral@altran.com',
+      author       		= 'tom bsc',
+      author_email 		= 'tom.bsc@outlook.com',
 	  license      		= 'MIT License',
-      url          		= 'https://github.com/Altran-PT-GDC/Robot-Framework-Mainframe-3270-Library',
-      packages  		= ['Mainframe3270'],
-      package_data 		= {'Mainframe3270': []},
-      requires     		= ['robotframework', 'six']
+      url          		= 'https://github.com/otemek/robotframework-mainframe3270',
+      packages  		= ['robotframework-mainframe3270'],
+      package_data 		= {'robotframework-mainframe3270': []},
+      requires     		= ['robotframework', 'six'],
+      python_requires   = '>=3'
       )

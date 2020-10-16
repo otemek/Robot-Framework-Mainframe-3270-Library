@@ -9,3 +9,5 @@ report.html
 output.xml
 log.html
 tests/screenshots/
+.project
+.pydevproject

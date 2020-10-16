@@ -163,9 +163,10 @@ class ExecutableAppWin(object):
     ]
     script_port = 17938
 
-    def __init__(self):
+    def __init__(self, sess_file=False):
         self.sp = None
         self.socket_fh = None
+        self.sess_file = sess_file
 
     def connect(self, host):
         self.spawn_app(host)
@@ -177,9 +178,12 @@ class ExecutableAppWin(object):
         self.socket.close()
         
     def spawn_app(self, host):
-        args = ['start', '/wait', self.executable] + self.args
+        if self.sess_file:
+            self.args = host
+            host = []
+        args = ['start', '/wait', self.executable] + self.args    
         args.extend(['-scriptport', str(self.script_port), host])
-        self.sp = subprocess.Popen(
+        self.sp = subpr ocess.Popen(
             args,
             shell=True,
             stdin=subprocess.PIPE,
@@ -258,8 +262,8 @@ class Emulator(object):
         with it.
     """
 
-    def __init__(self, visible=False, timeout=30, app=None, _sp=None):
-        """
+    def __init__(self, visible=False, timeout=30, app=None, _sp=None, session_file=False):
+        """*
             Create an emulator instance
 
             `visible` controls which executable will be used.
@@ -268,6 +272,7 @@ class Emulator(object):
             `_sp` is normally not used but can be set to a mock object
                 during testing.
         """
+        self.session_file = session_file
         self.app = app or self.create_app(visible)
         self.is_terminated = False
         self.status = Status(None)
@@ -286,7 +291,10 @@ class Emulator(object):
     def create_app(self, visible):
         if os.name == 'nt':
             if visible:
-                return wc3270App()
+                if self.session_file:
+                    return wc3270App(sess_file=True)
+                else:
+                    return wc3270App()
             return ws3270App()
         if visible:
             return x3270App()
