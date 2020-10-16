@@ -183,7 +183,7 @@ class ExecutableAppWin(object):
             host = []
         args = ['start', '/wait', self.executable] + self.args    
         args.extend(['-scriptport', str(self.script_port), host])
-        self.sp = subpr ocess.Popen(
+        self.sp = subprocess.Popen(
             args,
             shell=True,
             stdin=subprocess.PIPE,
