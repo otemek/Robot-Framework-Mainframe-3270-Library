@@ -3,7 +3,7 @@ from .x3270 import x3270
 from .version import VERSION
 
 
-class Mainframe3270(x3270):
+class ExtendedMainframe3270(x3270):
     """Mainframe3270 is a library for Robot Framework based on [https://pypi.org/project/py3270/|py3270 project],
        a Python interface to x3270, an IBM 3270 terminal emulator. It provides an API to a x3270 or s3270 subprocess.
 
