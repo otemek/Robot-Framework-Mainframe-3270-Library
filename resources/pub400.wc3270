@@ -2,5 +2,7 @@ wc3270.hostname: pub400.com
 wc3270.port: 23
 wc3270.model: 2
 wc3270.charset: bracket
+! wc3270.codepage: bracket #for wc3270 >=v.4
 wc3270.verifyHostCert: true
 wc3270.crosshair: true
+wc3270.visibleControl: false
