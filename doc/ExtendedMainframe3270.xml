@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec generated="20191025 16:42:36" type="library" name="Mainframe3270" format="ROBOT">
-<version>2.8</version>
+<keywordspec name="ExtendedMainframe3270" type="LIBRARY" format="ROBOT" scope="SUITE" namedargs="true" generated="2020-10-19T08:09:01Z" specversion="2" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\__init__.py" lineno="6">
+<version>1.0.0</version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
 <doc>Mainframe3270 is a library for Robot Framework based on [https://pypi.org/project/py3270/|py3270 project],
@@ -36,7 +36,7 @@ but is you set the visible to false, the py3270 will run the ws3270.exe.
 |     Send Enter
 |     Take Screenshot
 |     Close Connection</doc>
-<init>
+<init source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="14">
 <arguments>
 <arg>visible=True</arg>
 <arg>timeout=30</arg>
@@ -48,18 +48,14 @@ but is you set the visible to false, the py3270 will run the ws3270.exe.
 
 For change the wait_time see `Change Wait Time`, to change the img_folder
 see the `Set Screenshot Folder` and to change the timeout see the `Change Timeout` keyword.</doc>
-<tags>
-</tags>
 </init>
-<kw name="Change Timeout">
+<kw name="Change Timeout" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="41">
 <arguments>
 <arg>seconds</arg>
 </arguments>
 <doc>Change the timeout for connection in seconds.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Change Wait Time">
+<kw name="Change Wait Time" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="83">
 <arguments>
 <arg>wait_time</arg>
 </arguments>
@@ -77,10 +73,8 @@ If you want to change this value just use this keyword passing the time in secon
 Examples:
     | Change Wait Time | 0.1 |
     | Change Wait Time | 2 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Change Wait Time After Write">
+<kw name="Change Wait Time After Write" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="101">
 <arguments>
 <arg>wait_time_after_write</arg>
 </arguments>
@@ -100,17 +94,13 @@ Note: This keyword is useful for debug purpose
 Examples:
     | Change Wait Time After Write | 0.5 |
     | Change Wait Time After Write | 2 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Close Connection">
+<kw name="Close Connection" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="74">
 <arguments>
 </arguments>
 <doc>Disconnect from the host.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Delete Char">
+<kw name="Delete Char" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="193">
 <arguments>
 <arg>ypos=None</arg>
 <arg>xpos=None</arg>
@@ -124,10 +114,8 @@ terminal.
 Examples:
     | Delete Char |
     | Delete Char | ypos=9 | xpos=25 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Delete Field">
+<kw name="Delete Field" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="208">
 <arguments>
 <arg>ypos=None</arg>
 <arg>xpos=None</arg>
@@ -142,10 +130,8 @@ terminal.
 Examples:
     | Delete Field |
     | Delete Field | ypos=12 | xpos=6 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Execute Command">
+<kw name="Execute Command" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="136">
 <arguments>
 <arg>cmd</arg>
 </arguments>
@@ -156,28 +142,24 @@ Examples:
     | Execute Command | Home |
     | Execute Command | Tab |
     | Execute Command | PF(1) |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Move Next Field">
+<kw name="Move Next Field" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="230">
 <arguments>
 </arguments>
 <doc>Move the cursor to the next input field. Equivalent to pressing the Tab key.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Move Previous Field">
+<kw name="Move Previous Field" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="235">
 <arguments>
 </arguments>
 <doc>Move the cursor to the previous input field. Equivalent to pressing the Shift+Tab keys.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Open Connection">
+<kw name="Open Connection" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="46">
 <arguments>
 <arg>host</arg>
 <arg>LU=None</arg>
 <arg>port=23</arg>
+<arg>charSet=bracket</arg>
+<arg>isSessionFile=False</arg>
 </arguments>
 <doc>Create a connection with IBM3270 mainframe with the default port 23. To make a connection with the mainframe
 you only must inform the Host. You can pass the Logical Unit Name and the Port as optional.
@@ -185,11 +167,10 @@ you only must inform the Host. You can pass the Logical Unit Name and the Port a
 Example:
     | Open Connection | Hostname |
     | Open Connection | Hostname | LU=LUname |
-    | Open Connection | Hostname | port=992 |</doc>
-<tags>
-</tags>
+    | Open Connection | Hostname | port=992 |
+    | Open Connection | host=path\\to\\sessionFile.wc3270 | isSessionFile=${True} |</doc>
 </kw>
-<kw name="Page Should Contain All Strings">
+<kw name="Page Should Contain All Strings" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="395">
 <arguments>
 <arg>list_string</arg>
 <arg>ignore_case=False</arg>
@@ -204,10 +185,8 @@ Example:
     | Page Should Contain All Strings | ${list_of_string} |
     | Page Should Contain All Strings | ${list_of_string} | ignore_case=${True} |
     | Page Should Contain All Strings | ${list_of_string} | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Contain Any String">
+<kw name="Page Should Contain Any String" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="362">
 <arguments>
 <arg>list_string</arg>
 <arg>ignore_case=False</arg>
@@ -222,10 +201,8 @@ Example:
     | Page Should Contain Any String | ${list_of_string} |
     | Page Should Contain Any String | ${list_of_string} | ignore_case=${True} |
     | Page Should Contain Any String | ${list_of_string} | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Contain Match">
+<kw name="Page Should Contain Match" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="480">
 <arguments>
 <arg>txt</arg>
 <arg>ignore_case=False</arg>
@@ -248,10 +225,8 @@ Example:
     | Page Should Contain Match | **so???hing** |
     | Page Should Contain Match | **someTHING** | ignore_case=${True} |
     | Page Should Contain Match | **something** | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Contain String">
+<kw name="Page Should Contain String" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="327">
 <arguments>
 <arg>txt</arg>
 <arg>ignore_case=False</arg>
@@ -266,10 +241,8 @@ Example:
     | Page Should Contain String | something |
     | Page Should Contain String | someTHING | ignore_case=${True} |
     | Page Should Contain String | something | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Contain String X Times">
+<kw name="Page Should Contain String X Times" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="429">
 <arguments>
 <arg>txt</arg>
 <arg>number</arg>
@@ -285,10 +258,8 @@ Example:
        | Page Should Contain String X Times | something | 3 |
        | Page Should Contain String X Times | someTHING | 3 | ignore_case=${True} |
        | Page Should Contain String X Times | something | 3 | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Match Regex">
+<kw name="Page Should Match Regex" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="454">
 <arguments>
 <arg>regex_pattern</arg>
 </arguments>
@@ -299,10 +270,8 @@ for example, in Java, Ruby and .NET.
 
 Backslash is an escape character in the test data, and possible backslashes in the pattern must
 thus be escaped with another backslash (e.g. \\d\\w+).</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Not Contain All Strings">
+<kw name="Page Should Not Contain All Strings" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="408">
 <arguments>
 <arg>list_string</arg>
 <arg>ignore_case=False</arg>
@@ -318,10 +287,8 @@ Example:
     | Page Should Not Contain All Strings | ${list_of_string} |
     | Page Should Not Contain All Strings | ${list_of_string} | ignore_case=${True} |
     | Page Should Not Contain All Strings | ${list_of_string} | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Not Contain Any String">
+<kw name="Page Should Not Contain Any String" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="381">
 <arguments>
 <arg>list_string</arg>
 <arg>ignore_case=False</arg>
@@ -337,10 +304,8 @@ Example:
     | Page Should Not Contain Any Strings | ${list_of_string} |
     | Page Should Not Contain Any Strings | ${list_of_string} | ignore_case=${True} |
     | Page Should Not Contain Any Strings | ${list_of_string} | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Not Contain Match">
+<kw name="Page Should Not Contain Match" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="511">
 <arguments>
 <arg>txt</arg>
 <arg>ignore_case=False</arg>
@@ -363,10 +328,8 @@ Example:
     | Page Should Not Contain Match | **so???hing** |
     | Page Should Not Contain Match | **someTHING** | ignore_case=${True} |
     | Page Should Not Contain Match | **something** | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Not Contain String">
+<kw name="Page Should Not Contain String" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="345">
 <arguments>
 <arg>txt</arg>
 <arg>ignore_case=False</arg>
@@ -381,10 +344,8 @@ Example:
     | Page Should Not Contain String | something |
     | Page Should Not Contain String | someTHING | ignore_case=${True} |
     | Page Should Not Contain String | something | error_message=New error message |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Page Should Not Match Regex">
+<kw name="Page Should Not Match Regex" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="467">
 <arguments>
 <arg>regex_pattern</arg>
 </arguments>
@@ -395,10 +356,8 @@ for example, in Java, Ruby and .NET.
 
 Backslash is an escape character in the test data, and possible backslashes in the pattern must
 thus be escaped with another backslash (e.g. \\d\\w+).</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Read">
+<kw name="Read" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="121">
 <arguments>
 <arg>ypos</arg>
 <arg>xpos</arg>
@@ -410,17 +369,13 @@ Co-ordinates are 1 based, as listed in the status area of the terminal.
 
 Example for read a string in the position y=8 / x=10 of a length 15:
     | ${value} | Read | 8 | 10 | 15 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Send Enter">
+<kw name="Send Enter" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="224">
 <arguments>
 </arguments>
 <doc>Send a Enter to the screen.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Send PF">
+<kw name="Send PF" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="240">
 <arguments>
 <arg>PF</arg>
 </arguments>
@@ -428,10 +383,8 @@ Example for read a string in the position y=8 / x=10 of a length 15:
 
 Example:
        | Send PF | 3 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Screenshot Folder">
+<kw name="Set Screenshot Folder" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="148">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -439,10 +392,8 @@ Example:
 
 Example:
     | Set Screenshot Folder | C:\\Temp\\Images |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Take Screenshot">
+<kw name="Take Screenshot" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="160">
 <arguments>
 <arg>height=410</arg>
 <arg>width=670</arg>
@@ -456,10 +407,8 @@ can change this values passing them from the keyword.
 Examples:
     | Take Screenshot |
     | Take Screenshot | height=500 | width=700 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Wait Field Detected">
+<kw name="Wait Field Detected" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="179">
 <arguments>
 </arguments>
 <doc>Wait until the screen is ready, the cursor has been positioned
@@ -472,10 +421,8 @@ a screen that is not yet ready.
 
 Using this method tells the client to wait until a field is
 detected and the cursor has been positioned on it.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Wait Until String">
+<kw name="Wait Until String" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="299">
 <arguments>
 <arg>txt</arg>
 <arg>timeout=5</arg>
@@ -486,10 +433,8 @@ detected and the cursor has been positioned on it.</doc>
 Example:
     | Wait Until String | something |
     | Wait Until String | something | timeout=10 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write">
+<kw name="Write" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="249">
 <arguments>
 <arg>txt</arg>
 </arguments>
@@ -497,10 +442,8 @@ Example:
 
 Example:
     | Write | something |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write Bare">
+<kw name="Write Bare" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="257">
 <arguments>
 <arg>txt</arg>
 </arguments>
@@ -508,10 +451,8 @@ Example:
 
 Example:
     | Write Bare | something |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write Bare In Position">
+<kw name="Write Bare In Position" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="276">
 <arguments>
 <arg>txt</arg>
 <arg>ypos</arg>
@@ -524,10 +465,8 @@ terminal.
 
 Example:
     | Write Bare in Position | something | 9 | 11 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write In Position">
+<kw name="Write In Position" source="C:\Development\robotframework-mainframe3270\ExtendedMainframe3270\x3270.py" lineno="265">
 <arguments>
 <arg>txt</arg>
 <arg>ypos</arg>
@@ -540,7 +479,5 @@ terminal.
 
 Example:
     | Write in Position | something | 9 | 11 |</doc>
-<tags>
-</tags>
 </kw>
 </keywordspec>

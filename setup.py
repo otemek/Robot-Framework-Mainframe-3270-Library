@@ -14,7 +14,7 @@ with open(version_file) as file:
     exec(code)
 
 setup(name         		= 'robotframework-mainframe3270-extended',
-      version      		= '1.2.1.dev0',
+      version      		= VERSION,
       description  		= 'Extended Mainframe Test library for Robot Framework based on Altran\'s library',
 	  long_description	= 'Test library for Robot Framework to enable to create automated test scripts to test IBM Mainframe 3270',
       author       		= 'tom bsc',

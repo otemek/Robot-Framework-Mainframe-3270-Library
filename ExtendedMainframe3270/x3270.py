@@ -51,6 +51,7 @@ class x3270(object):
             | Open Connection | Hostname |
             | Open Connection | Hostname | LU=LUname |
             | Open Connection | Hostname | port=992 |
+            | Open Connection | host=path\\\\to\\\\sessionFile.wc3270 | isSessionFile=${True} |
         """
         self.host = host
         self.lu = LU
