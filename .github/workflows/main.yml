@@ -28,4 +28,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: python setup.py bdist_wheel
+      
+      - name: archive artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: XM3270artifact
+          path: dist/robotframework_mainframe3270_extended*.whl
+        
         
