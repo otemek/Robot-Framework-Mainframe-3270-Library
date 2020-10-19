@@ -32,7 +32,7 @@ jobs:
       - name: archive artifact
         uses: actions/upload-artifact@v2.2.0
         with:
-          name: XM3270artifact
+          name: XM3270artifact.whl
           path: dist/robotframework_mainframe3270_extended*.whl
         
         
