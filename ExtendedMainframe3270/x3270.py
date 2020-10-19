@@ -43,7 +43,7 @@ class x3270(object):
         """
         self.timeout = float(seconds)
 
-    def open_connection(self, host, LU=None, port=23, charSet='bracket', isSessionFile=False):
+    def open_connection(self, host, LU=None, port=23, isSessionFile=False):
         """Create a connection with IBM3270 mainframe with the default port 23. To make a connection with the mainframe
         you only must inform the Host. You can pass the Logical Unit Name and the Port as optional.
 
@@ -57,7 +57,6 @@ class x3270(object):
         self.lu = LU
         self.port = port
         self.isSessionFile = isSessionFile
-#         self.charSet = charSet        #TODO: Not implemented yet, but its good to set given encoding for open connection keyword
         if self.lu:
             self.credential = "%s@%s:%s" % (self.lu, self.host, self.port)
         else:
