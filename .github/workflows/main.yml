@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.TEST_PYPI_PASSWORD }}
           repository_url: https://test.pypi.org/legacy/
 
-      - name: conditional echo
+      - name: upload to pypi
         if: success()
         uses: pypa/gh-action-pypi-publish@v1.4.1
         with: 
