@@ -1,4 +1,4 @@
-name: build and publish RFM3270X
+name: build and publish to test.pypi
 
 on:
   push:
