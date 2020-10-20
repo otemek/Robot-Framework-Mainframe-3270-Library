@@ -41,4 +41,8 @@ jobs:
           user: __token__
           password: ${{ secrets.TEST_PYPI_PASSWORD }}
           repository_url: https://test.pypi.org/legacy/
+
+      - name: conditional echo
+        if: success()
+        run: echo conditional success
         
