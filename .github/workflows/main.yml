@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: check python version
+        run: python --version
+
       - name: Install wheel package
         run: pip install wheel
 
