@@ -13,7 +13,7 @@ jobs:
         run: python3 --version
 
       - name: Install wheel package
-        run: pip3 install wheel
+        run: pip3 install wheel robotframework six setuptools
 
       - name: build wheel package
         run: python3 setup.py bdist_wheel
