@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExtendedMainframe3270
+Library    ExtendedMainframe3270       
 Test Setup    Open mainframe connection
 Test Teardown    Close mainframe connection
 
@@ -30,4 +30,5 @@ Open session connection
     
 Do a mainframe screenshot
     Sleep    2s
+    Set Screenshot Folder    ${CURDIR}\\..\\Results\\
     Take Screenshot
