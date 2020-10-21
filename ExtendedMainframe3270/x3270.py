@@ -172,6 +172,7 @@ class x3270(object):
         filename_sufix = time.strftime("%Y%m%d%H%M%S")
         filepath = os.path.join(self.imgfolder, '%s_%s.%s' % (filename_prefix, filename_sufix, extension))
         self.mf.save_screen(os.path.join(self.output_folder, filepath))
+        logger.write(f'screenshot saved in location: {filepath}')
         logger.write('<iframe src="%s" height="%s" width="%s"></iframe>' % (filepath.replace("\\", "/"), height, width),
                      level='INFO', html=True)
 
