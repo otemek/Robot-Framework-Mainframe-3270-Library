@@ -9,11 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install wheel package
-        run: pip install wheel
+      - name: check python version
+        run: python3 --version
+
+      - name: Install required packages
+        run: pip3 install robotframework==3.2.2 setuptools==50.3.2 six==1.15.0 wheel==0.35.1
 
       - name: build wheel package
-        run: python setup.py bdist_wheel
+        run: python3 setup.py bdist_wheel
       
       - name: upload to pypi
         uses: pypa/gh-action-pypi-publish@v1.4.1
