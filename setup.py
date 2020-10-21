@@ -1,17 +1,7 @@
 # -*- coding: utf-8 -*-
-from os.path import abspath, dirname, join
+from ExtendedMainframe3270.version import VERSION
+from setuptools import setup
 
-try:
-    from setuptools import setup
-except ImportError as error:
-    from distutils.core import setup
-
-
-version_file = join(dirname(abspath(__file__)), 'ExtendedMainframe3270', 'version.py')
-
-with open(version_file) as file:
-    code = compile(file.read(), version_file, 'exec')
-    exec(code)
 
 setup(name         		= 'robotframework-mainframe3270-extended',
       version      		= VERSION,
