@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ExtendedMainframe3270.version import VERSION
+from .ExtendedMainframe3270.version import VERSION
 from setuptools import setup
 
 
