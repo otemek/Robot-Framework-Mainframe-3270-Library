@@ -32,3 +32,4 @@ Do a mainframe screenshot
     Sleep    2s
     Set Screenshot Folder    ${CURDIR}\\..\\Results\\
     Take Screenshot    format=jpg
+    
