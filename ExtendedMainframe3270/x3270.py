@@ -156,7 +156,7 @@ class x3270(object):
             logger.error('Given screenshots path "%s" does not exist' % path)
             logger.warn('Screenshots will be saved in "%s"' % self.imgfolder)
 
-    def take_screenshot(self, height='410', width='670'):
+    def take_screenshot(self, height='410', width='670', format="html"):
         """Generate a screenshot of the IBM 3270 Mainframe in a html format. The
            default folder is the log folder of RobotFramework, if you want change see the `Set Screenshot Folder`.
 
@@ -171,10 +171,14 @@ class x3270(object):
         extension = 'html'
         filename_sufix = time.strftime("%Y%m%d%H%M%S")
         filepath = os.path.join(self.imgfolder, '%s_%s.%s' % (filename_prefix, filename_sufix, extension))
-        self.mf.save_screen(os.path.join(self.output_folder, filepath))
-        logger.write(f'screenshot saved in location: {filepath}')
-        logger.write('<iframe src="%s" height="%s" width="%s"></iframe>' % (filepath.replace("\\", "/"), height, width),
-                     level='INFO', html=True)
+        fullpath = os.path.join(self.output_folder, filepath)
+        self.mf.save_screen(fullpath)
+        if format.lower() == "jpg":
+            self._convert_html_to_jpg(fullpath, format)
+            logger.write(f'Screenshot saved in location {self.output_folder}')
+        else:
+            logger.write(f'screenshot saved in location: {filepath}')
+        logger.write('<iframe src="%s" height="%s" width="%s"></iframe>' % (filepath.replace("\\", "/"), height, width), level='INFO', html=True)
 
     def wait_field_detected(self):
         """Wait until the screen is ready, the cursor has been positioned
@@ -562,6 +566,15 @@ class x3270(object):
                 if message is None:
                     message = 'The string "' + string + '" was not found'
                 raise Exception(message)
+
+    def _convert_html_to_jpg(self, input_file, new_format="jpg"):
+        """Converts html file generated originally by wc3270 to jpg image
+        """
+        try:
+            import imgkit
+        except ModuleNotFoundError:
+            raise Exception("Please install 'imgkit' module and wkhtmltox executable: https://wkhtmltopdf.org/")
+        imgkit.from_file(input_file, ''.join([input_file.rstrip(".html"),".",new_format]))
 
     @staticmethod
     def _check_limits(ypos, xpos):

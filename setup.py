@@ -13,6 +13,6 @@ setup(name         		= 'robotframework-mainframe3270-extended',
       url          		= 'https://github.com/otemek/robotframework-mainframe3270',
       packages  		= ['ExtendedMainframe3270'],
       package_data 		= {'ExtendedMainframe3270': []},
-      requires     		= ['robotframework', 'six'],
+      requires     		= ['robotframework', 'six', 'imgkit'],
       python_requires   = '>=3'
       )

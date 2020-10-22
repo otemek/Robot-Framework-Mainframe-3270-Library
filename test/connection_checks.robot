@@ -31,4 +31,4 @@ Open session connection
 Do a mainframe screenshot
     Sleep    2s
     Set Screenshot Folder    ${CURDIR}\\..\\Results\\
-    Take Screenshot
+    Take Screenshot    format=jpg
