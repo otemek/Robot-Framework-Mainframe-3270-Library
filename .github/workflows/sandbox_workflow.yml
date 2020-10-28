@@ -8,5 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: echo 'github_ref:' ${{ GITHUB_REF }} ', github_run_number:' ${{ GITHUB_RUN_NUMBER }}
+      - name: print github vars
+        run: echo github_ref $GITHUB_REF , github_run_number $GITHUB_RUN_NUMBER
+             
+      - name: printenv
+        run: printenv
