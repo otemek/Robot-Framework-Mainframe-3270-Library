@@ -33,3 +33,6 @@ Do a mainframe screenshot
     Set Screenshot Folder    ${CURDIR}\\..\\Results\\
     Take Screenshot    format=jpg
     
+Check If return value for found string
+    @{server_name}    Read Value For Given String    Server name . . . :\ \ \ \     6    
+    Should Be Equal As Strings    "${server_name}[0]"    "PUB400"
