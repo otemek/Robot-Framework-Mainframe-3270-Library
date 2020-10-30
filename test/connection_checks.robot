@@ -25,7 +25,7 @@ Open std host connection
 Open session connection
     [Setup]    NONE
     [Teardown]    NONE
-    Open Connection    host=${sessionFile}    isSessionFile=${True}s
+    Open Connection    host=${sessionFile}    isSessionFile=${True}
     Sleep    2s
     Close Connection
     
