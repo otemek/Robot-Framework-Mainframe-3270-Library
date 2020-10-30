@@ -33,7 +33,6 @@ Do a mainframe screenshot
     Sleep    2s
     Set Screenshot Folder    ${CURDIR}\\..\\Results\\
     Take Screenshot    format=jpg
-    
 
 Read cursor position 
     ${password_field}    Create List    6    25
@@ -45,3 +44,7 @@ Read cursor position
     ${next_cur_position}    Get Current Cursor Position    return_type=int
     Lists Should Be Equal    ${next_cur_position}    ${username_field}    
     
+Check If return value for found string
+    @{server_name}    Read Value For Given String    Server name . . . :\ \ \ \     6    
+    Should Be Equal As Strings    "${server_name}[0]"    "PUB400"
+

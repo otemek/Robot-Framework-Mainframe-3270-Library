@@ -132,6 +132,22 @@ class x3270(object):
         string = self.mf.string_get(int(ypos), int(xpos), int(length))
         return str(string)
 
+    def read_value_for_given_string(self, string, nchar=0):
+        '''Finds given string on a mainframe screen and return specified number of characters, e.g.
+            
+            | @{result} | Read Value For Given String | RC_VALUE: | 6 |  #After finding "RC_VALUE:" it should return next 6 characters after found string |
+        '''
+        result=[]
+        if not self._search_string(string):
+            logger.warn(f"Could not find given string: {string}", html=True)
+            return result
+        screen_content = self._read_screen_lines()
+        for _row, line in screen_content.items():
+            if string in line:
+                row_result = line.split(string)[1:]
+                [result.append(item[:nchar]) for item in row_result]
+        return result
+
     def execute_command(self, cmd):
         """Execute an [http://x3270.bgp.nu/wc3270-man.html#Actions|x3270 command].
 
@@ -553,6 +569,16 @@ class x3270(object):
                 if char:
                     full_text += char
         return full_text
+
+    def _read_screen_lines(self):
+        """Read all the mainframe screen and return screen lines as a list.
+        """
+        screen_lines = {}
+        for row in range(24):
+            numb = int(row+1)
+            line = self.mf.string_get(numb, 1, 80)
+            screen_lines[numb] = line
+        return screen_lines
 
     def _compare_all_list_with_screen_text(self, list_string, ignore_case, message, should_match):
         if ignore_case: list_string = [item.lower() for item in list_string]
