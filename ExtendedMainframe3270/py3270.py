@@ -497,3 +497,15 @@ class Emulator(object):
 
     def save_screen(self, file_path):
         self.exec_command('PrintText(html,file,{0})'.format(file_path).encode("utf-8"))
+
+    def get_cursor_position(self, ret_type="str"):
+        """Gets current cursor position defined as [ypos, xpos]
+        """
+        result =  self.exec_command("Query(Cursor)".encode("utf-8")).data[0]
+        if ret_type == "str":
+            # return list with y,x as strings
+            return [str(int(item) + 1) for item in result.decode("utf-8").split()]
+        else:
+            # return list with y,x as integers
+            return [int(item) + 1 for item in result.decode("utf-8").split()]
+
