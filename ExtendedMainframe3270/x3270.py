@@ -602,6 +602,12 @@ class x3270(object):
             raise Exception("Please install 'imgkit' module and wkhtmltox executable: https://wkhtmltopdf.org/")
         imgkit.from_file(input_file, ''.join([input_file.rstrip(".html"),".",new_format]))
 
+    def get_current_cursor_position(self, return_type="str"):
+        """Gets current cursor position and return as a list of either integers or strings.
+        Robot framework create lists as a strings, but sometimes it's useful to get integers
+        """
+        return self.mf.get_cursor_position(ret_type=return_type)
+
     @staticmethod
     def _check_limits(ypos, xpos):
         """Checks if the user has passed some coordinate y / x greater than that existing in the mainframe
