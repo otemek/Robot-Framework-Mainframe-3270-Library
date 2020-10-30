@@ -139,8 +139,8 @@ class x3270(object):
         '''
         result=[]
         if not self._search_string(string):
-            logger.error(f"Could not find given string: {string}", html=True)
-            assert False
+            logger.warn(f"Could not find given string: {string}", html=True)
+            return result
         screen_content = self._read_screen_lines()
         for _row, line in screen_content.items():
             if string in line:
