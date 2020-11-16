@@ -48,3 +48,10 @@ Check If return value for found string
     @{server_name}    Read Value For Given String    Server name . . . :\ \ \ \     6    
     Should Be Equal As Strings    "${server_name}[0]"    "PUB400"
 
+Check if return value for found string for specific col number
+    @{display_name}    Read Value For Given String    Server name    6    70
+    Should Be Equal As Strings    "${display_name}[0]"    "PUB400"         
+    @{POWERbunker_IBM}    Read Value For Given String    POWERbunker    3    51
+    Should Be Equal As Strings    "${POWERbunker_IBM}[0]"    "IBM"    
+
+  
