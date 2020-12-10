@@ -132,7 +132,7 @@ class x3270(object):
         string = self.mf.string_get(int(ypos), int(xpos), int(length))
         return str(string)
 
-    def read_value_for_given_string(self, string, nchar=0, from_col=None):
+    def read_value_for_given_string(self, string, nchar=0, from_col=0):
         '''Finds given string on a mainframe screen and return specified number of characters, e.g.
             
             | @{result} | Read Value For Given String | RC_VALUE: | 6 |  #After finding "RC_VALUE:" it should return next 6 characters after found string |
@@ -143,7 +143,7 @@ class x3270(object):
             logger.warn(f"Could not find given string: {string}", html=True)
             return result
         screen_content = self._read_screen_lines()
-        if from_col is None:
+        if col_number == 0:
             for _row, line in screen_content.items():
                 if string in line:
                     row_result = line.split(string)[1:]
@@ -154,6 +154,8 @@ class x3270(object):
                 if string in line:
                     result.append(line[col_number-1:(col_number+nchar-1)]) #appending sliced string, using col_number-1 as a start position for string
             return result
+        else:
+            raise Exception("Column size must be smaller than 80")
 
     def execute_command(self, cmd):
         """Execute an [http://x3270.bgp.nu/wc3270-man.html#Actions|x3270 command].
